@@ -1,3 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="sebastianmenze.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="sebastianmenze.github.io/" rel="alternate" type="text/html" /><updated>2021-02-26T15:23:03+01:00</updated><id>sebastianmenze.github.io/feed.xml</id><title type="html">Sebastian Menze</title><subtitle>I am a scientist, climber and DIY enthousiats living in Bergen, Norway. This site contains a collection of my publications, code, stories and photographies</subtitle><entry><title type="html">Test</title><link href="sebastianmenze.github.io/jekyll/update/2021/02/26/Test.html" rel="alternate" type="text/html" title="Test" /><published>2021-02-26T11:44:11+01:00</published><updated>2021-02-26T11:44:11+01:00</updated><id>sebastianmenze.github.io/jekyll/update/2021/02/26/Test</id><content type="html" xml:base="sebastianmenze.github.io/jekyll/update/2021/02/26/Test.html">&lt;p&gt;Amazing ice climbing&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/20210213_131929.jpg&quot; alt=&quot;Me&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">Amazing ice climbing</summary></entry></feed>
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ site.title | xml_escape }}</title>
+    <description>{{ site.description | xml_escape }}</description>
+    <link>{{ site.url }}{{ site.baseurl }}/</link>
+    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <generator>Jekyll v{{ jekyll.version }}</generator>
+    {% for post in site.posts limit:5 %}
+      <item>
+        <title>{{ post.title | xml_escape }}</title>
+        <description>{{ post.content | xml_escape }}</description>
+        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
+        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
+        {% for tag in post.tags %}
+        <category>{{ tag | xml_escape }}</category>
+        {% endfor %}
+        {% for cat in post.categories %}
+        <category>{{ cat | xml_escape }}</category>
+        {% endfor %}
+      </item>
+    {% endfor %}
+  </channel>
+</rss>
