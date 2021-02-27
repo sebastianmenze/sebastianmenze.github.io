@@ -1,5 +1,5 @@
 ---
-bg: "bohuslaen.jpg"
+bg: "20200926_122029.jpg"
 layout: page
 title: "About"
 crawlertitle: "Why and how this blog was created"
